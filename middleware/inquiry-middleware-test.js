@@ -18,7 +18,6 @@ exports.getAmountSignatureById = (req, res) => {
             const inquiryData = {
                 response: "VA Static Response",
                 ...data,
-                amount: amount,
                 response_code: '00'
             }
             res.send(inquiryData);
