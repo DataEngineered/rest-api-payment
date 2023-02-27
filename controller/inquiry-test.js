@@ -2,14 +2,14 @@ const sqlPoolProd = require('../config/db-config');
 // const Inquiry = require('./inquiry');
 
 const InquiryTest = function(inquiryTest){
-    this.va_static = inquiryTest.va_static;
+    this.va_number = inquiryTest.va_number;
     this.amount = inquiryTest.amount;
-    this.customer_name = inquiryTest.customer_name;
+    this.cust_name = inquiryTest.cust_name;
     this.signature = inquiryTest.signature;
 }
 
 InquiryTest.findByIdSignature = (id, result) => {
-    sqlPoolProd.query(`SELECT va_static, amount, customer_name FROM payment_test WHERE va_static = ${id}`, (err, res) => {
+    sqlPoolProd.query(`SELECT va_number, amount, cust_name FROM payment_test WHERE va_number = ${id}`, (err, res) => {
         if(err){
             console.log(err);
             result(err, null);

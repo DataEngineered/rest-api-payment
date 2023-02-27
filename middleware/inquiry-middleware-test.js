@@ -18,8 +18,6 @@ exports.getAmountSignatureById = (req, res) => {
             const inquiryData = {
                 response: "VA Static Response",
                 ...data,
-                type: type,
-                trx_uid: trx_uid,
                 amount: amount,
                 response_code: '00'
             }

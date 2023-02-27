@@ -1,3 +1,5 @@
+const sqlPoolProd = require('../config/db-config');
+
 exports.sendNotifications = (req, res) => {
     const request = req.body.request
     const trx_id = req.body.trx_id
