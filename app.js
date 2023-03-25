@@ -45,10 +45,10 @@ app.use('/payments', paymentRoutes);
 // }
 
 
-// app.get('/:va', (req, res, next) => {
-//     const va = req.params.va;
-//     next();
-// })
+app.get('/:va', (req, res, next) => {
+    const va = req.params.va;
+    next();
+})
 
 // app.get('/inquiry-trx/:va', (req, res) => {
 //     const vAcct = req.params.va;
