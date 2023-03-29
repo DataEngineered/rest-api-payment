@@ -1,5 +1,4 @@
 const InquiryTest = require('../controller/inquiry-test');
-const NotificationsTest = require('../controller/inquiry-test');
 
 exports.getAmountSignatureById = (req, res) => {
     const id = req.params.id;
