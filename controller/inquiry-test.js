@@ -21,7 +21,7 @@ const NotificationsTest = function(notificationsTest){
     this.payment_total = notificationsTest.payment_total;
     this.payment_channel_uid = notificationsTest.payment_channel_uid;
     this.payment_channel = notificationsTest.payment_channel;
-    this.signature = this.signature;
+    this.signature = notificationsTest.signature;
 }
 
 InquiryTest.findByIdSignature = (id, result) => {
@@ -42,7 +42,9 @@ InquiryTest.findByIdSignature = (id, result) => {
 };
 
 NotificationsTest.createNotification = (newNotification, result) => {
-    sqlPoolProd.query("INSERT INTO notifications_test SET ?", newNotification, (err, res) => {
+    sqlPoolProd.query(
+        "INSERT INTO notifications_test(trx_id, merchant_id, merchant_name, bill_no, payment_date, payment_status_code, payment_status_desc, bill_total, payment_total, payment_channel_uid, payment_channel, signature) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)",
+        newNotification, (err, res) => {
         if(err){
             console.log("error: ", err);
             result(err, null);
