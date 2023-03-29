@@ -1,20 +1,9 @@
 const sqlPoolProd = require('../config/db-config');
 
 exports.sendNotifications = (req, res) => {
-    const request = req.body.request
-    const trx_id = req.body.trx_id
-    const merchant_id = req.body.merchant_id
-    const merchant = req.body.merchant
-    const bill_no = req.body.bill_no
-    const payment_reff = req.body.payment_reff
-    const payment_date = req.body.payment_date
-    const payment_status_code = req.body.payment_status_code
-    const payment_status_desc = req.body.payment_status_desc
-    const bill_total = req.body.bill_total
-    const payment_total = req.body.payment_total
-    const payment_channel_uid = req.body.payment_channel_uid
-    const payment_channel = req.body.payment_channel
-    const signature = req.body.signature
+    const {request, trx_id, merchant_id, merchant, bill_no, payment_reff, payment_date,
+        payment_status_code, payment_status_desc, bill_total, payment_total, payment_channel_uid,
+        payment_channel, signature} = req.body
 
     if(payment_status_code == '2'){
         res.status(200).send({
