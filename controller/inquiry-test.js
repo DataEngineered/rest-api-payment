@@ -1,5 +1,4 @@
 const sqlPoolProd = require('../config/db-config');
-// const Inquiry = require('./inquiry');
 
 const InquiryTest = function(inquiryTest){
     this.va_number = inquiryTest.va_number;
@@ -7,6 +6,8 @@ const InquiryTest = function(inquiryTest){
     this.cust_name = inquiryTest.cust_name;
     this.signature = inquiryTest.signature;
     this.expired_date = inquiryTest.expired_date;
+    this.status = inquiryTest.status;
+    this.payment_paid = inquiryTest.payment_paid;
 }
 
 InquiryTest.findByIdSignature = (id, result) => {

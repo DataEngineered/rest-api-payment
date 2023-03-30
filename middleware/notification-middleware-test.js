@@ -1,4 +1,5 @@
 const NotificationsTest = require('../controller/notifications-test');
+const sqlPoolProd = require('../config/db-config');
 
 exports.createdNotification = (req, res) => {
     if (!req.body){
@@ -23,11 +24,22 @@ exports.createdNotification = (req, res) => {
     });
 
     NotificationsTest.createNotification(notificationTest, (err, data) => {
-        if (err)
+        const paymentTimestamp = new Date(req.body.payment_date);
+        const updateQuery = `UPDATE payment_test SET status = ?, payment_paid = ? WHERE va_number = ?`;
+        sqlPoolProd.query(updateQuery, [req.body.payment_status_code, paymentTimestamp, req.body.trx_id], (err, res) => {
+            if(err){
+                console.log("error: ", err);
+            }
+        });
+
+        if (err){
             res.status(500).send({
                 message:
                     err.message || "Some error occurred while creating the Notifications."
             });
-        else res.send(data);
+        }
+        else {
+            res.send(data);
+        }
     });
 }

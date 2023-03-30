@@ -9,7 +9,7 @@ const sendNotifications = require('../middleware/notification-middleware-test');
 router.get('/inquiries/:id', inquiriesById.inquiriesByIdSignature);
 router.get('/inquire/:id/:signature', inquiriedSignatureById.getSignatureAndIdProd);
 router.get('/inquiry/:id/:signature', inquiriesSignatureAmountById.getAmountSignatureById);
-router.get('/inquiry-test/:id/:signature', inquiriesTest.getAmountSignatureById);
-router.post('/notifications', sendNotifications.createdNotification);
+router.get('/:id/:signature', inquiriesTest.getAmountSignatureById);
+router.post('/', sendNotifications.createdNotification);
 
 module.exports = router;
