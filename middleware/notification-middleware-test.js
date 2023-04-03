@@ -39,7 +39,25 @@ exports.createdNotification = (req, res) => {
             });
         }
         else {
-            res.send(data);
+            const trxID = data.trx_id;
+            const merchantId = data.merchant_id;
+            const merchantName = data.merchant_name;
+            const billNo = data.bill_no;
+            const currentDate = new Date();
+
+            const inquiryData = {
+                response: "Payment Notification",
+                trx_id: trxID,
+                merchant_id: merchantId,
+                merchant_name: merchantName,
+                bill_no: billNo,
+                //...data,
+                response_code: '00',
+                response_desc: 'Success',
+                response_date: currentDate
+            }
+
+            res.send(inquiryData);
         }
     });
 }

@@ -17,6 +17,10 @@ exports.getAmountSignatureById = (req, res) => {
         } else {
             const currentDate = new Date();
             const expiredDate = new Date(data.expired_date);
+            const trxID = data.trx_id;
+            const merchantId = data.merchant_id;
+            const merchantName = data.merchant_name;
+            const billNo = data.bill_no;
 
             if(currentDate > expiredDate){
                 res.status(403).send({ message: 'Expired Virtual Account!', response_code: '01'});
@@ -26,7 +30,9 @@ exports.getAmountSignatureById = (req, res) => {
             const inquiryData = {
                 response: "VA Static Response",
                 ...data,
-                response_code: '00'
+                response_code: '00',
+                response_desc: 'Success',
+                response_date: currentDate
             }
             res.send(inquiryData);
         }
