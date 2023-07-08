@@ -217,7 +217,7 @@ CustomerSub.selectInsertIntoAccounting = (va, result) => {
 
 CustomerSub.insertIntoNotification = (newNotification, result) => {
     sqlPoolProd.query(
-        'INSERT INTO `notifications_test`(`trx_id`, `merchant_id`, `merchant`, `bill_no`, `payment_date`, `payment_status_code`, `payment_status_desc`, `bill_total`, `payment_total`, `payment_channel_uid`, `payment_channel`, `signature`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
+        'INSERT INTO `history_paids`(`trx_id`, `merchant_id`, `merchant`, `bill_no`, `payment_date`, `payment_status_code`, `payment_status_desc`, `bill_total`, `payment_total`, `payment_channel_uid`, `payment_channel`, `signature`) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)',
         newNotification, (err, res) => {
         if(err){
             console.log("error: ", err);
