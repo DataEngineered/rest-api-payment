@@ -17,9 +17,10 @@
     "helmet": "^6.0.1",
     "md5": "^2.3.0",
     "mysql2": "^3.1.2",
+    "ros-rest": "^2.0.0",
     "sha1": "^1.1.1"
   },
   "devDependencies": {
-    "nodemon": "^2.0.20"
+    "nodemon": "^1.14.9"
   }
 }
