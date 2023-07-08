@@ -10,7 +10,7 @@ const notificationMiddlewares = require('../middleware/notification-middleware-t
 // router.get('/inquire/:id/:signature', inquiriedSignatureById.getSignatureAndIdProd);
 // router.get('/inquiry/:id/:signature', inquiriesSignatureAmountById.getAmountSignatureById);
 
-router.get('/inquiry-test/:va_number/:signature', inquiriesTest.findByVASignature);
+router.get('/inquiry-test/:va_number/:signature', Inquiry.findByVASignature);
 router.post('/notifications', [
     notificationMiddlewares.inputNotifsTest,
     notificationMiddlewares.updateStatusCustomerTest,
